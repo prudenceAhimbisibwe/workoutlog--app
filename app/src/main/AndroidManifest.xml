@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WorkoutLog">
         <activity
-            android:theme="@style/splashTheme"
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/splashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
