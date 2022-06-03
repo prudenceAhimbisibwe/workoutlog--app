@@ -40,12 +40,12 @@ class SignupActivity : AppCompatActivity() {
         etconfirm = findViewById(R.id.etconfirm)
         btnsignup=findViewById(R.id.btnsignup)
         btnsignup.setOnClickListener { validation() }
-
         tvlogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }
+
     fun validation() {
         var error = false
         tilfirstname.error = null
@@ -76,7 +76,7 @@ class SignupActivity : AppCompatActivity() {
         }
         var confirm = etconfirm.text.toString()
         if (confirm.isBlank()) {
-            tilconfirm.error = "Ivalid password"
+            tilconfirm.error = "Ivalid password,enter password"
             error = true
         }
 

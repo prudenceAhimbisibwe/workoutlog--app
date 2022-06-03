@@ -14,4 +14,5 @@
 <!--    <string name="login">login</string>-->
 <!--    <string name="password">password</string>-->
     <string name="enter_email">Enter email</string>
+    <string name="don_t_have_an_account_signup">Don\'t have an account? Signup</string>
 </resources>
