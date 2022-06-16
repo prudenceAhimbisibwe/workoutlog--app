@@ -26,11 +26,12 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/enter_email"
             android:inputType="textEmailAddress"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
+            android:textSize="20sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -49,10 +50,11 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etpassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
+            android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -70,10 +72,11 @@
 
     <TextView
         android:id="@+id/tvsignup"
-        android:layout_width="212dp"
-        android:layout_height="30dp"
+        android:layout_width="285dp"
+        android:layout_height="42dp"
         android:layout_marginTop="32dp"
         android:text="@string/don_t_have_an_account_signup"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />

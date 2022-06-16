@@ -27,13 +27,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgIcon1"
         app:layout_constraintTop_toTopOf="parent">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etfirstname"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/first_name"
             android:inputType="textPersonName"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
+            android:textSize="20sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -61,11 +63,12 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etlastname"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/last_name"
             android:inputType="textPersonName"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
+            android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
@@ -92,11 +95,12 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etpassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/input_email"
             android:inputType="textEmailAddress"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
+            android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
@@ -124,11 +128,12 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/input_password"
             android:inputType="textPassword"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
+            android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
@@ -156,20 +161,22 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etconfirm"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/confirm_password"
             android:inputType="textPassword"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
+            android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnsignup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="115dp"
+        android:layout_height="41dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
+        android:backgroundTint="@color/purple_500"
         android:text="@string/signup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -181,8 +188,8 @@
         android:layout_height="49dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
         android:text="@string/already_have_an_account_login"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnsignup" />
