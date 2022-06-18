@@ -105,7 +105,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
-        android:id="@+id/imgIcon"
+        android:id="@+id/imgIcon4"
         android:layout_width="51dp"
         android:layout_height="52dp"
         android:layout_marginStart="24dp"
