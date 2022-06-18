@@ -3,52 +3,43 @@ package com.prudence.workoutlog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.prudence.workoutlog.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
-    lateinit var btnLogin: Button
-    lateinit var tilEmail: TextInputLayout
-    lateinit var etEmail: TextInputEditText
-    lateinit var tilpassword: TextInputLayout
-    lateinit var etpassword: TextInputEditText
-    lateinit var tvsignup: TextView
-
+    lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-        btnLogin = findViewById(R.id.btnLogin)
-        tilEmail = findViewById(R.id.tilEmail)
-        etEmail = findViewById(R.id.etEmail)
-        tilpassword = findViewById(R.id.tilpassword)
-        etpassword = findViewById(R.id.etpassword)
-        tvsignup = findViewById(R.id.tvsignup)
-        btnLogin.setOnClickListener { validation() }
-        tvsignup.setOnClickListener {
-            var intent = Intent(this, SignupActivity::class.java)
+        binding= ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.tvsignup.setOnClickListener {
+            val intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
         }
-        btnLogin.setOnClickListener {
-            var intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)}
+        binding.btnLogin.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
+        validation()
     }
-
-
     fun validation() {
         var error = false
-        tilEmail.error = null
-        tilpassword.error = null
-        var email = etEmail.text.toString()
+        binding.tilEmail.error = null
+        binding.tilEmail.error = null
+        var email = binding.etEmail.text.toString()
         if (email.isBlank()) {
-            tilEmail.error = "Email is required"
+            binding.tilEmail.error = "Email is required"
             error = true
 
         }
-        var password = etpassword.text.toString()
+        var password = binding.etWord.text.toString()
         if (password.isBlank()) {
-            tilpassword.error = "Password is required"
+            binding.tilWord.error = "Password is required"
             error = true
         }
         if (error!=true) {
