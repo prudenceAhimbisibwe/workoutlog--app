@@ -1,15 +1,19 @@
-package com.prudence.workoutlog
+package com.prudence.workoutlog.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
-import android.widget.Button
-import android.widget.TextView
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
-import com.prudence.workoutlog.databinding.ActivityLoginBinding
+import android.widget.Toast
+import com.prudence.workoutlog.ApiClient
+import com.prudence.workoutlog.api.ApiInterface
 import com.prudence.workoutlog.databinding.ActivitySignupBinding
+import com.prudence.workoutlog.models.RegisterRequest
+import com.prudence.workoutlog.models.RegisterResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.http.POST
 
 class SignupActivity : AppCompatActivity() {
     lateinit var binding:ActivitySignupBinding
@@ -20,6 +24,10 @@ class SignupActivity : AppCompatActivity() {
 
         binding.tvlogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnsignup.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
         validationSignup()
@@ -67,9 +75,39 @@ class SignupActivity : AppCompatActivity() {
         if (password!=confirm){
             binding.tilconfirm.error="Enter password"
         }
-        if(error!=false){
+        if(!error){
+            val registerRequest= RegisterRequest(firstname,lastname,email,password,confirm)
+            makeRegeister(registerRequest)
         }
     }
+    fun makeRegeister(registerRequest: RegisterRequest){
+        var  apiClient= ApiClient.buildApiClient(ApiInterface::class.java)
+        val request= apiClient.registerUser(registerRequest)
+
+        request.enqueue(object : Callback<RegisterResponse> {
+            override fun onResponse(
+                call: Call<RegisterResponse>, response:
+                Response<RegisterResponse>
+            ) {
+                if (response.isSuccessful){
+                    Toast.makeText(baseContext,response.body()?.message, Toast.LENGTH_LONG).show()
+                    startActivity(Intent(baseContext, LoginActivity::class.java))
+
+
+                }
+                else {
+                    val error=response.errorBody()?.string()
+                    Toast.makeText(baseContext, error, Toast.LENGTH_LONG).show()
+                }
+            }
+
+            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                Toast .makeText(baseContext,t.message, Toast.LENGTH_LONG).show()
+            }
+
+        })
+    }
+
     }
 
 

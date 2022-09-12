@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/img_1"
-    tools:context=".SignupActivity">
+    tools:context=".ui.SignupActivity">
 
     <ImageView
         android:id="@+id/imgIcon1"
@@ -175,7 +175,7 @@
         android:layout_width="115dp"
         android:layout_height="41dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/purple_500"
         android:text="@string/signup"
@@ -188,11 +188,13 @@
         android:layout_width="242dp"
         android:layout_height="49dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:text="@string/already_have_an_account_login"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnsignup" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
