@@ -1,4 +1,4 @@
-package com.prudence.workoutlog
+package com.prudence.workoutlog.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -12,5 +12,4 @@ object ApiClient {
     fun <T> buildApiClient(apiInterface: Class<T>): T {
         return retrofit.create(apiInterface)
     }
-
 }

@@ -8,12 +8,13 @@ import retrofit2.http.POST
 
 import com.prudence.workoutlog.models.RegisterRequest
 import com.prudence.workoutlog.models.RegisterResponse
+import retrofit2.Response
 
 
 interface ApiInterface {
     @POST("/register")
-    fun registerUser(@Body registerRequest: RegisterRequest): Call<RegisterResponse>
+    suspend fun registerUser(@Body registerRequest: RegisterRequest): Response<RegisterResponse>
 
     @POST("/login")
-    fun loginUser(@Body loginRequest: LoginRequest): Call<LoginResponse>
+    suspend fun loginUser(@Body loginRequest: LoginRequest): Response<LoginResponse>
 }

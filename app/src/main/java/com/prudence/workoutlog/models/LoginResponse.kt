@@ -8,4 +8,3 @@ data class LoginResponse(
      @SerializedName("user_id")var userId:String,
      @SerializedName("profile_id") var profileId:String
 )
-

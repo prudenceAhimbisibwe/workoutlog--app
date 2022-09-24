@@ -8,5 +8,3 @@ data class User(
      @SerializedName("user_id") var userId:String,
      var email:String
 )
-
-
