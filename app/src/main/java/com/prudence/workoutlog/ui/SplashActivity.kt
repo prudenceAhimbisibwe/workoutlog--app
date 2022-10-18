@@ -19,5 +19,6 @@ class SplashActivity : AppCompatActivity() {
         else{
             startActivity(Intent(this,HomeActivity::class.java))
         }
+        finish()
     }
 }

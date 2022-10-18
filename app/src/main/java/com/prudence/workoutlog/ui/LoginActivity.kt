@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import com.prudence.workoutlog.databinding.ActivityLoginBinding
 import com.prudence.workoutlog.models.LoginRequest
 import com.prudence.workoutlog.models.LoginResponse
+import com.prudence.workoutlog.utils.Constants
 import com.prudence.workoutlog.viewModel.UserViewModel
 
 class LoginActivity : AppCompatActivity() {
@@ -21,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        sharedPrefs = getSharedPreferences("WORKOUTLOG_PREFS", MODE_PRIVATE)
+        sharedPrefs = getSharedPreferences(Constants.SHARED_PREFS_FILE, MODE_PRIVATE)
 
         binding.btnLogin.setOnClickListener { validationLogin()}
         binding.tvsignup.setOnClickListener {
@@ -62,9 +63,10 @@ class LoginActivity : AppCompatActivity() {
     }
         fun saveLoginDetails(loginResponse: LoginResponse){
             val editor = sharedPrefs.edit()
-            editor.putString("ACCESS_TOKEN",loginResponse.accessToken)
-            editor.putString("USER_ID",loginResponse.userId)
-            editor.putString("PROFILE_ID",loginResponse.profileId)
+            val token = "Bearer ${loginResponse.accessToken}"
+            editor.putString(Constants.ACCESS_TOKEN,loginResponse.accessToken)
+            editor.putString(Constants.USER_ID,loginResponse.userId)
+            editor.putString(Constants.PROFILE_ID,loginResponse.profileId)
             editor.apply()
         }
     }

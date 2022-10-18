@@ -1,14 +1,13 @@
 package com.prudence.workoutlog.api
 
-import com.prudence.workoutlog.models.LoginRequest
-import com.prudence.workoutlog.models.LoginResponse
+import com.prudence.workoutlog.models.*
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-import com.prudence.workoutlog.models.RegisterRequest
-import com.prudence.workoutlog.models.RegisterResponse
 import retrofit2.Response
+import retrofit2.http.GET
+import retrofit2.http.Header
 
 
 interface ApiInterface {
@@ -17,4 +16,8 @@ interface ApiInterface {
 
     @POST("/login")
     suspend fun loginUser(@Body loginRequest: LoginRequest): Response<LoginResponse>
+
+    @GET("/exerciseCategories")
+    suspend fun fetchExerciseCategory(@Header ("Authorization") accessToken: String): Response<ExerciseCategory>
+
 }
