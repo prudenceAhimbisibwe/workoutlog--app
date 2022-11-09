@@ -18,6 +18,9 @@ interface ApiInterface {
     suspend fun loginUser(@Body loginRequest: LoginRequest): Response<LoginResponse>
 
     @GET("/exerciseCategories")
-    suspend fun fetchExerciseCategory(@Header ("Authorization") accessToken: String): Response<ExerciseCategory>
+    suspend fun fetchExerciseCategories(@Header("Authorization")accessToken:String): Response<List<ExerciseCategory>>
+
+    @GET("/exercises")
+    suspend fun fetchExercises(@Header("Authorization")accessToken:String): Response<List<Exercise>>
 
 }

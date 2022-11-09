@@ -4,29 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img_1"
     tools:context=".ui.SignupActivity">
-
-    <ImageView
-        android:id="@+id/imgIcon1"
-        android:layout_width="51dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tilfirstname"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tilfirstname"
-        app:srcCompat="@drawable/ic_baseline_person_24" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilfirstname"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_width="363dp"
+        android:layout_height="58dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         app:boxBackgroundColor="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgIcon1"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -40,26 +27,14 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
-        android:id="@+id/imgIcon2"
-        android:layout_width="51dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="28dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tillastname"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tillastname"
-        app:srcCompat="@drawable/ic_baseline_person_24" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tillastname"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="361dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         app:boxBackgroundColor="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgIcon2"
         app:layout_constraintTop_toBottomOf="@+id/tilfirstname">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -72,26 +47,14 @@
             android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
-        android:id="@+id/imgIcon3"
-        android:layout_width="47dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tilWord"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tilWord"
-        app:srcCompat="@drawable/ic_baseline_email_24" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilWord"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="361dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         app:boxBackgroundColor="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgIcon3"
         app:layout_constraintTop_toBottomOf="@+id/tillastname">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -104,26 +67,14 @@
             android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
-        android:id="@+id/imgIcon4"
-        android:layout_width="51dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="24dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tilPword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tilPword"
-        app:srcCompat="@drawable/ic_baseline_lock_24" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilPword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="367dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         app:boxBackgroundColor="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgIcon4"
         app:layout_constraintTop_toBottomOf="@+id/tilWord"
         app:passwordToggleEnabled="true">
 
@@ -137,26 +88,14 @@
             android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
-        android:id="@+id/imgIcon5"
-        android:layout_width="51dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="36dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tilconfirm"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tilconfirm"
-        app:srcCompat="@drawable/ic_baseline_lock_24" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilconfirm"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="365dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         app:boxBackgroundColor="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgIcon5"
         app:layout_constraintTop_toBottomOf="@+id/tilPword"
         app:passwordToggleEnabled="true">
 
@@ -173,26 +112,44 @@
     <Button
         android:id="@+id/btnsignup"
         android:layout_width="115dp"
-        android:layout_height="41dp"
+        android:layout_height="48dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/purple_500"
         android:text="@string/signup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilconfirm" />
+        app:layout_constraintTop_toBottomOf="@+id/etPhoneNumber" />
 
     <TextView
         android:id="@+id/tvlogin"
         android:layout_width="242dp"
         android:layout_height="49dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="@string/already_have_an_account_login"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.411"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnsignup" />
+
+    <EditText
+        android:id="@+id/etPhoneNumber"
+        android:layout_width="364dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:hint="Enter Phone Number"
+        android:inputType="phone"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.656"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilconfirm"
+        app:layout_goneMarginTop="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

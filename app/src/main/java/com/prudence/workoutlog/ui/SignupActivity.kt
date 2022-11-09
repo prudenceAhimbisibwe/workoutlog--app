@@ -1,6 +1,7 @@
 package com.prudence.workoutlog.ui
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
@@ -14,10 +15,12 @@ import com.prudence.workoutlog.models.RegisterRequest
 import com.prudence.workoutlog.viewModel.UserViewModel
 
 class SignupActivity : AppCompatActivity() {
+    lateinit var sharedPrefs: SharedPreferences
     lateinit var binding: ActivitySignupBinding
     val userViewModel: UserViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPrefs = getSharedPreferences("WORKOUTLOG_PREFS", MODE_PRIVATE)
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

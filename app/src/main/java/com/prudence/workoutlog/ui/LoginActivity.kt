@@ -61,12 +61,12 @@ class LoginActivity : AppCompatActivity() {
 
         }
     }
-        fun saveLoginDetails(loginResponse: LoginResponse){
+        fun saveLoginDetails(loginResponse: LoginResponse) {
             val editor = sharedPrefs.edit()
             val token = "Bearer ${loginResponse.accessToken}"
-            editor.putString(Constants.ACCESS_TOKEN,loginResponse.accessToken)
-            editor.putString(Constants.USER_ID,loginResponse.userId)
-            editor.putString(Constants.PROFILE_ID,loginResponse.profileId)
+            editor.putString(Constants.ACCESS_TOKEN, loginResponse.accessToken)
+            editor.putString(Constants.USER_ID, loginResponse.userId)
+            editor.putString(Constants.PROFILE_ID, loginResponse.profileId)
             editor.apply()
         }
     }

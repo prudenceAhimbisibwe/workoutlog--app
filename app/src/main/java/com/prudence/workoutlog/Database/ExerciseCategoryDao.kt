@@ -7,10 +7,12 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.prudence.workoutlog.models.ExerciseCategory
 
+
 @Dao
 interface ExerciseCategoryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertExercise(exerciseCategory: ExerciseCategory)
+    fun insertExerciseCategory(exerciseCategory:ExerciseCategory)
 
-
+    @Query ( "SELECT * FROM Exercisecategories")
+    fun getExerciseCategories (): LiveData<List<ExerciseCategory>>
 }

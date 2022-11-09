@@ -15,34 +15,36 @@ import com.prudence.workoutlog.utils.Constants
 import com.prudence.workoutlog.viewModel.ExerciseViewModel
 
 class HomeActivity : AppCompatActivity() {
-    lateinit var sharedPrefs:SharedPreferences
-    lateinit var binding:ActivityHomeBinding
-    val exerciseViewModel:ExerciseViewModel by viewModels()
+    lateinit var binding: ActivityHomeBinding
+    lateinit var sharedPrefs: SharedPreferences
+    lateinit var token : String
+    val exerciseViewModel :  ExerciseViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityHomeBinding.inflate(layoutInflater)
+        sharedPrefs = getSharedPreferences(Constants.SHARED_PREFS_FILE, MODE_PRIVATE)
+        token = sharedPrefs.getString(Constants.ACCESS_TOKEN,"").toString()
+        exerciseViewModel.fetchDbExercises()
+        exerciseViewModel.fetchDbCategories()
+        binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupBottomNavigation()
 
-        binding.tvLogout.setOnClickListener {
-            sharedPrefs = getSharedPreferences(Constants.SHARED_PREFS_FILE, MODE_PRIVATE)
-            val token = sharedPrefs.getString(Constants.ACCESS_TOKEN,Constants.EMPTY_STRING)
-            exerciseViewModel.fetchExerciseCategories(token!!)
-            val editor = sharedPrefs.edit()
-            editor.putString(Constants.ACCESS_TOKEN,"")
-            editor.putString(Constants.USER_ID,"")
-            editor.putString(Constants.PROFILE_ID,"")
-            editor.apply()
-            startActivity(Intent(this,LoginActivity::class.java))
-        }
     }
+
     override fun onResume() {
         super.onResume()
-        exerciseViewModel.exerciseCategoryLiveData.observe(this, Observer { exerciseCategories ->
-            Toast.makeText(baseContext,"fetched ${exerciseCategories.size} categories", Toast.LENGTH_LONG).show()
-        })
-        exerciseViewModel.errorLiveData.observe(this, Observer { errorMsg ->
-            Toast.makeText(this, errorMsg, Toast.LENGTH_LONG).show()
+        exerciseViewModel.exerciseCategoryLiveData.observe(this, Observer { exerciseCategories->
+            if(exerciseCategories.isEmpty()){
+                exerciseViewModel.fetchExerciseCategories(token)
+            }
+        } )
+        exerciseViewModel.exerciseLiveData.observe(this, Observer { exerciseCategories->
+            if(exerciseCategories.isEmpty()){
+                exerciseViewModel.fetchExercises(token)
+            }
+        } )
+        exerciseViewModel.errorLiveData.observe(this, Observer { erroMsg->
+            Toast.makeText(this,erroMsg,Toast.LENGTH_LONG).show()
         })
     }
 
