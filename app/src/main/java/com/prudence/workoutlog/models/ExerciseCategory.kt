@@ -7,5 +7,5 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "ExerciseCategories")
 data class ExerciseCategory(
     @PrimaryKey @SerializedName("category_id")var categoryId:String,
-    @PrimaryKey @SerializedName("category_name")var categoryName:String
+     @SerializedName("category_name")var categoryName:String
 )

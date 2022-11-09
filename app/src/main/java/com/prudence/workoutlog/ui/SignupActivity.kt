@@ -28,7 +28,7 @@ class SignupActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
-        binding.btnsignup.setOnClickListener { validationSignup() }
+        binding.btnsignup.setOnClickListener { validationSignUp() }
     }
         override fun onResume() {
             super.onResume()
@@ -40,13 +40,14 @@ class SignupActivity : AppCompatActivity() {
                 Toast.makeText(baseContext, error, Toast.LENGTH_LONG).show()
             })
         }
-    fun validationSignup() {
+    fun validationSignUp() {
         var error = false
         var firstname = binding.etfirstname.text.toString()
         var lastname = binding.etlastname.text.toString()
         var email = binding.etWord.text.toString()
         var password = binding.etPword.text.toString()
         var confirm = binding.etconfirm.text.toString()
+        var phonenumber = binding.etPhoneNumber.text.toString()
 
         if (firstname.isBlank()) {
             binding.tilfirstname.error = "First name is required"
@@ -57,18 +58,16 @@ class SignupActivity : AppCompatActivity() {
             error = true
         }
         if (email.isBlank()) {
-            binding.tilPword.error = "Email is required"
+            binding.tilWord.error = "Email is required"
             error = true
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             binding.tilWord.error = "Not valid email address"
             error = true
-
         }
         if (password.isBlank()) {
             binding.tilPword.error = "Password is required"
             error = true
-
         }
         if (confirm.isBlank()) {
             binding.tilconfirm.error = "Invalid password,enter password"
@@ -77,8 +76,12 @@ class SignupActivity : AppCompatActivity() {
         if (password != confirm) {
             binding.tilconfirm.error = "Enter password"
         }
+        if (phonenumber.isBlank()) {
+            binding.etPhoneNumber.error = "PhoneNumber is required"
+            error = true
+        }
         if (!error) {
-            val registerRequest = RegisterRequest(firstname, lastname, email, password, confirm)
+            val registerRequest = RegisterRequest(firstname, lastname, email, password,phonenumber)
             userViewModel.RegisterUser(registerRequest)
         }
     }

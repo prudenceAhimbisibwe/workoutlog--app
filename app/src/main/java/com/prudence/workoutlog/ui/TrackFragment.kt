@@ -23,14 +23,14 @@ import java.time.LocalDate
 import java.util.*
 
 
-class TrackFragment : Fragment() {
+class TrackFragment : Fragment(), LogWorkout {
     lateinit var binding: FragmentTrackBinding
     val workoutPlanViewModel: WorkoutPlanViewModel by viewModels()
     val exerciseViewModel: ExerciseViewModel by viewModels()
     val workoutLogRecordViewModel: WorkoutLogRecordViewModel by viewModels()
     lateinit var prefs: SharedPreferences
     lateinit var userId: String
-    lateinit var workoutplanitemId: String
+    lateinit var workoutPlanItemId: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,13 +46,14 @@ class TrackFragment : Fragment() {
         prefs = requireContext().getSharedPreferences(Constants.SHARED_PREFS_FILE, Context.MODE_PRIVATE)
         userId = prefs.getString(Constants.USER_ID, Constants.EMPTY_STRING).toString()
         workoutPlanViewModel.getExistingWorkoutPlans(userId)
+
         workoutPlanViewModel.workoutPlanLivedata.observe(this, Observer { workoutplan ->
             val workoutPlanId = workoutplan.workoutPlanId
             val dayNumber = LocalDate.now().dayOfWeek.value
             workoutPlanViewModel.getTodayWorkoutPlanItem(workoutPlanId, dayNumber)
                 .observe(this, Observer { workoutplanitem ->
                     if (workoutplanitem != null) {
-                        workoutplanitemId = workoutplanitem.workoutPlanItemId
+                        workoutPlanItemId = workoutplanitem.workoutPlanItemId
                         val todayExerciseIds = workoutplanitem.exerciseId
                         exerciseViewModel.getExercisesIds(todayExerciseIds)
                             .observe(this, Observer { exercise ->
@@ -73,18 +74,21 @@ class TrackFragment : Fragment() {
                 })
         })
 
-        override fun onClickdone(set: Int, weight: Int, reps: Int, exerciseId: String) {
-            val workoutLogrecord = WorkoutLogRecord(
-                workoutLogId = UUID.randomUUID().toString(),
-                date = "",
-                exerciseId = exerciseId,
-                set = set,
-                reps = reps,
-                weight = weight,
-                workoutPlanItemId = workoutplanitemId,
-                userId = userId
-            )
-            workoutLogRecordViewModel.saveWorkoutLogRecord(workoutLogrecord)
-        }
+
+
+    }
+
+    override fun onClickdone(set: Int, weight: Int, reps: Int, exerciseId: String) {
+        val workoutLogRecord = WorkoutLogRecord(
+            workoutLogId = UUID.randomUUID().toString(),
+            date = "",
+            exerciseId = exerciseId,
+            set = set,
+            reps = reps,
+            weight = weight,
+            workoutPlanItemId = workoutPlanItemId,
+            userId = userId
+        )
+        workoutLogRecordViewModel.saveWorkoutLogRecord(workoutLogRecord)
     }
 }

@@ -20,5 +20,20 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="track_fragment">Track Fragment</string>
     <string name="plan_fragment">Plan Fragment</string>
+    <string name="prudeahimbisibwe_gmail_com">prudeahimbisibwe@gmail.com</string>
+    <string name="weight">Weight</string>
+    <string name="_60_0_kg">60.0 Kg</string>
+    <string name="height">Height</string>
+    <string name="_160cm">160cm</string>
+    <string name="bmi">BMI</string>
+    <string name="sex">Sex</string>
+    <string name="female">Female</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="_12_06_1996">12/06/1996</string>
+    <string name="save">Save</string>
+    <string name="ahimbisibwe_prudence">Ahimbisibwe Prudence</string>
+    <string name="name">Name</string>
+    <string name="my_profile">My Profile</string>
+    <string name="logout">logout</string>
 
 </resources>
